@@ -11,7 +11,8 @@ export class MoviesService {
     return this.movies;
   }
 
-  getOne(id: number): Movie | undefined {
+  getOne(id: number): Movie {
+    console.log(typeof id);
     const movie = this.movies.find((movie) => movie.id === id);
     if (!movie) {
       throw new NotFoundException(`Movie with ID: ${id} not found`);
@@ -21,7 +22,7 @@ export class MoviesService {
 
   deleteOne(id: number) {
     this.getOne(id);
-    this.movies = this.movies.filter((movie) => movie.id !== parseInt(id));
+    this.movies = this.movies.filter((movie) => movie.id !== id);
   }
 
   create(movieData: CreateMovieDTO) {

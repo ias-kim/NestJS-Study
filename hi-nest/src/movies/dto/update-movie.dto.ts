@@ -1,8 +1,6 @@
-import { PartialType } from '@nestjs/swagger';
 import { IsNumber, IsOptional, IsString } from 'class-validator';
-import { CreateMovieDTO } from './create-movie.dto';
 
-export class UpdateMovieDTO extends PartialType(CreateMovieDTO) {
+export class UpdateMovieDTO {
   @IsString()
   readonly title?: string;
 
